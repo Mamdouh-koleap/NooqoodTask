@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Reservation List";
+}
+
+<h2>All Reservations</h2>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>ReservedBy</th>
+            <th>CustomerName</th>
+            <th>ReservationDate</th>
+            <th>TripName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model.reservationList)
+        {
+            <tr>
+                <td>@r.ReservedBy</td>
+                <td>@r.CustomerName</td>
+                <td>@r.ReservationDate</td>
+                <td>@r.trip.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
